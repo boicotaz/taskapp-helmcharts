@@ -1,0 +1,30 @@
+replicaCount: 1
+
+image:
+  repository: boicotaz/taskapp-backend
+  pullPolicy: Always
+  tag: "latest"
+
+applicationPort: 8080
+
+readinessProbe:
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  failureThreshold: 3
+
+service:
+  type: ClusterIP
+  port: 80
+
+db:
+  host: taskapp-database
+  port: 5432
+  secretName: taskapp-database-secret
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

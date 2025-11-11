@@ -1,0 +1,29 @@
+replicaCount: 1
+
+image:
+  repository: boicotaz/taskapp-frontend
+  pullPolicy: Always
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 80
+
+applicationPort: 80
+
+ingress:
+  enabled: true
+  path: /
+  pathType: Prefix
+
+backend:
+  serviceName: taskapp-backend
+  servicePort: 80
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
