@@ -23,4 +23,5 @@ data:
       ('Seed database', 'Using a Kubernetes Job', 'done'),
       ('Secret handling', 'Using sealed secrets', 'done'),
       ('Install Argocd', 'GitOps deployment', 'done'),
+      ('Install Helm', 'Package manager for Kubernetes', 'done'),
       ('Deploy frontend', 'Using Nginx', 'done');
