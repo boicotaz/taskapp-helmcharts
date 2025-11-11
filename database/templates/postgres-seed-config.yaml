@@ -22,4 +22,5 @@ data:
       ('Build Go API', 'TaskApp backend', 'pending'),
       ('Seed database', 'Using a Kubernetes Job', 'done'),
       ('Secret handling', 'Using sealed secrets', 'done'),
+      ('Install Argocd', 'GitOps deployment', 'done'),
       ('Deploy frontend', 'Using Nginx', 'done');
