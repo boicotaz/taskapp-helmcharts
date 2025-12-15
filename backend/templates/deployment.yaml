@@ -53,7 +53,7 @@ spec:
         - containerPort: {{ .Values.applicationPort }}
         readinessProbe:
           httpGet:
-            path: /typo
+            path: /ready
             port: {{ .Values.applicationPort }}
           initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds  }}
           periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
