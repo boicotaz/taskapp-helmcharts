@@ -1,4 +1,4 @@
-replicaCount: 0
+replicaCount: 4
 
 image:
   repository: boicotaz/taskapp-backend
