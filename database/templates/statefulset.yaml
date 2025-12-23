@@ -24,7 +24,7 @@ spec:
             memory: "64Mi"
             cpu: "50m"
           limits:
-            memory: "128Mi"
+            memory: "512Mi"
             cpu: "250m"
         ports:
         - containerPort: {{ .Values.service.port }}
