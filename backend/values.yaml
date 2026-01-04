@@ -21,7 +21,13 @@ db:
   port: 5432
   secretName: taskapp-database-secret
 
-resources: {}
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "250m"
+  limits:
+    memory: "256Mi"
+    cpu: "1000m"
 
 nodeSelector: {}
 
