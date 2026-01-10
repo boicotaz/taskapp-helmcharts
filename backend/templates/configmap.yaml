@@ -8,3 +8,4 @@ data:
   PORT: "{{ .Values.applicationPort }}"
   DB_PORT: "{{ .Values.db.port }}"
   DB_HOST: "{{ .Values.db.host }}"
+  POSTGRES_DB: "{{ .Values.db.name }}"
