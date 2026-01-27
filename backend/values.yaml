@@ -17,7 +17,7 @@ service:
   port: 80
 
 db:
-  host: taskapp-database-cluster-ro
+  host: taskapp-database-cluster-rw
   port: 5432
   secretName: taskapp-database-cluster-secret
   name: taskapp
