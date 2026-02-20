@@ -6,6 +6,10 @@ spec:
   selector:
     app: {{ .Chart.Name }}
   ports:
-  - port: {{ .Values.service.port }}
+  - name: http
+    port: {{ .Values.service.port }}
     targetPort: {{ .Values.applicationPort }}
+  - name: metrics
+    port: 9113
+    targetPort: 9113
   type: {{ .Values.service.type }}
