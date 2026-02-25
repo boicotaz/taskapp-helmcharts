@@ -18,18 +18,18 @@ data:
             proxy_pass http://{{ .Values.backend.serviceName }}:{{ .Values.backend.servicePort }}/tasks;
         }
 
-        # ✅ SPA fallback (optional)
-        location / {
-            try_files $uri /index.html;
-        }
-        
         # Expose nginx metrics
-        location /nginx_status {
+        location = /nginx_status {
           stub_status;
           access_log off;
 
           # IMPORTANT: lock it down so it's not public
           allow 127.0.0.1;   # exporter in same pod uses localhost
           deny all;
+        }
+
+        # ✅ SPA fallback (optional)
+        location / {
+            try_files $uri /index.html;
         }
     }
