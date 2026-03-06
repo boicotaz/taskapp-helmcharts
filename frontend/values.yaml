@@ -20,6 +20,12 @@ backend:
   serviceName: taskapp-backend
   servicePort: 80
 
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 10
+  requestsPerSecond: 5
+
 resources: {}
 
 nodeSelector: {}
