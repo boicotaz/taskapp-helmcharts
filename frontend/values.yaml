@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: boicotaz/taskapp-frontend
   pullPolicy: Always
-  tag: "246541cb89a97b4169579c0e2c73f961be843e37"
+  tag: "4c901e0285522662848ed377ff5b05f910576fd5"
 
 service:
   type: ClusterIP
