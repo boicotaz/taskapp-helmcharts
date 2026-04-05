@@ -7,6 +7,11 @@ image:
 
 applicationPort: 8080
 
+# Seconds to sleep in the preStop hook before SIGTERM is sent.
+# This gives kube-proxy time to propagate the endpoint removal so no new
+# requests are routed to the pod while it is shutting down.
+preStopSleepSeconds: 5
+
 readinessProbe:
   initialDelaySeconds: 5
   periodSeconds: 10

@@ -51,6 +51,10 @@ spec:
             configMapKeyRef:
               name: {{ .Release.Name }}-config
               key: DB_HOST
+        lifecycle:
+          preStop:
+            exec:
+              command: ["sleep", "{{ .Values.preStopSleepSeconds }}"]
         ports:
         - containerPort: {{ .Values.applicationPort }}
         readinessProbe:
