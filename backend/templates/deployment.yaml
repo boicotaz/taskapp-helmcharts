@@ -35,12 +35,12 @@ spec:
           valueFrom:
             secretKeyRef:
               name: {{ .Values.db.secretName }}
-              key: username
+              key: POSTGRES_USER
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: {{ .Values.db.secretName }}
-              key: password
+              key: POSTGRES_PASSWORD
         - name: DB_PORT
           valueFrom:
             configMapKeyRef:
