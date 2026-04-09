@@ -8,14 +8,18 @@ data:
   default.conf: |
     server {
         listen 80;
+        resolver kube-dns.kube-system.svc.cluster.local valid=10s;
 
         # Serve frontend static files
         root /usr/share/nginx/html;
         index index.html;
 
         # ✅ Reverse proxy for backend API
+        # Using a variable forces nginx to re-resolve DNS on each request
+        # instead of caching the upstream IP at startup.
+        set $backend http://{{ .Values.backend.serviceName }}:{{ .Values.backend.servicePort }};
         location /tasks {
-            proxy_pass http://{{ .Values.backend.serviceName }}:{{ .Values.backend.servicePort }}/tasks;
+            proxy_pass $backend/tasks;
         }
 
         # Expose nginx metrics
