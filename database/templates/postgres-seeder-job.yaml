@@ -22,7 +22,7 @@ spec:
         args:
           - |
             echo "Waiting..."
-            until pg_isready -h {{ .Release.Name }} -U $POSTGRES_USER; do
+            until pg_isready -h {{ .Release.Name }} -U $POSTGRES_USER -d $POSTGRES_DB; do
               sleep 2
             done
 
