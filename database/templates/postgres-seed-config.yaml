@@ -25,4 +25,5 @@ data:
       ('Install Argocd', 'GitOps deployment', 'done'),
       ('Install Helm', 'Package manager for Kubernetes', 'done'),
       ('Deploy frontend', 'Using Nginx', 'done'),
+      ('Deploy frontend', 'Set up ESO for AWS secrets', 'done'),
       ('Setup PG cluster', 'Using Kubernetes Operator', 'doing');
