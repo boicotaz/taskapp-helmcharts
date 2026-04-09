@@ -8,7 +8,7 @@ data:
   default.conf: |
     server {
         listen 80;
-        resolver {{ (lookup "v1" "Service" "kube-system" "kube-dns").spec.clusterIP }} valid=10s;
+        resolver {{ .Values.kubeDnsIP }} valid=10s;
 
         # Serve frontend static files
         root /usr/share/nginx/html;
