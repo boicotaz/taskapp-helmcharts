@@ -16,10 +16,6 @@ ingress:
   path: /
   pathType: Prefix
 
-# ClusterIP of the kube-dns service (kubectl get svc kube-dns -n kube-system)
-# Standard default for kubeadm/minikube clusters is 10.96.0.10
-kubeDnsIP: 10.96.0.10
-
 backend:
   serviceName: taskapp-backend
   servicePort: 80
