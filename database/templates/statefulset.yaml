@@ -31,13 +31,13 @@ spec:
         env:
         - name: POSTGRES_DB
           valueFrom:
-            secretKeyRef:
-              name: {{ .Release.Name }}-secret
+            configMapKeyRef:
+              name: {{ .Release.Name }}-app-config
               key: POSTGRES_DB
         - name: POSTGRES_USER
           valueFrom:
-            secretKeyRef:
-              name: {{ .Release.Name }}-secret
+            configMapKeyRef:
+              name: {{ .Release.Name }}-app-config
               key: POSTGRES_USER
         - name: POSTGRES_PASSWORD
           valueFrom:

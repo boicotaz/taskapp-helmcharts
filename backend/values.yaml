@@ -26,6 +26,7 @@ db:
   port: 5432
   secretName: taskapp-database-secret
   name: taskdb
+  user: taskuser
 
 resources:
   requests:
