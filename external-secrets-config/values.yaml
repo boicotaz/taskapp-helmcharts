@@ -1,0 +1,7 @@
+clusterSecretStore:
+  name: aws-secrets-manager
+  aws:
+    region: eu-west-1
+    credentialsSecret:
+      name: aws-credentials
+      namespace: external-secrets

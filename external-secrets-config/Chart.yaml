@@ -1,0 +1,8 @@
+apiVersion: v2
+name: external-secrets-config
+version: 0.1.0
+description: ClusterSecretStore and ESO configuration for TaskApp
+
+type: application
+
+dependencies: []
