@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: {{ include "taskapp-frontend.image" . | quote }}
         resources:
           requests:
             memory: "64Mi"
