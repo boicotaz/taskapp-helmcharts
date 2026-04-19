@@ -22,7 +22,7 @@ spec:
         args:
           - |
             STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-              http://{{ .Release.Name }}:{{ .Values.service.port }}/tasks)
+              {{ include "taskapp-backend.endpoint" . }}/tasks)
 
             if [ "$STATUS" != "200" ]; then
               echo "Smoke test FAILED: GET /tasks returned HTTP $STATUS"

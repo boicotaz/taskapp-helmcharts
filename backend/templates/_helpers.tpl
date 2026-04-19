@@ -7,6 +7,14 @@ Usage: {{ include "taskapp-backend.image" . }}
 {{- end }}
 
 {{/*
+Render the backend service endpoint (host:port).
+Usage: {{ include "taskapp-backend.endpoint" . }}
+*/}}
+{{- define "taskapp-backend.endpoint" -}}
+{{- printf "http://%s:%v" .Release.Name .Values.service.port }}
+{{- end }}
+
+{{/*
 Render container resource requests/limits.
 Usage: {{ include "taskapp-backend.resources" . }}
 */}}
