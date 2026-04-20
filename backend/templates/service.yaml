@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   selector:
-    app: {{ .Chart.Name }}
+    {{- include "taskapp.selectorLabels" . | nindent 4 }}
   ports:
   - name: http
     port: {{ .Values.service.port }}
