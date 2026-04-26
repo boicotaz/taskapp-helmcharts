@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: boicotaz/taskapp-backend
   pullPolicy: Always
-  tag: "79f3208c23da5aeade9dbc1236289acd494df577"
+  tag: "0804a2b0a7f0ba4c55ca60ca7e04e006bc309ac2"
 
 applicationPort: 8080
 
