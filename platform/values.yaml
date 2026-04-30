@@ -1,5 +1,8 @@
 namespace: default
 
+prometheusRules:
+  enabled: false
+
 limitRange:
   enabled: true
   container:

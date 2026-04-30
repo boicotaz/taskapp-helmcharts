@@ -1,0 +1,25 @@
+{{- if .Values.prometheusRules.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: taskapp-alerts
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack
+spec:
+  groups:
+    - name: taskapp.rules
+      rules:
+        - alert: OOMKilled
+          expr: |
+            kube_pod_container_status_last_terminated_reason{
+              reason="OOMKilled",
+              namespace="default"
+            } == 1
+          for: 0m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Container OOMKilled"
+            description: "Container {{ $labels.container }} in pod {{ $labels.pod }} was OOMKilled. Memory limit is too low or there is a memory leak."
+{{- end }}
