@@ -3,6 +3,9 @@ namespace: default
 prometheusRules:
   enabled: false
 
+grafanaDashboard:
+  enabled: false
+
 limitRange:
   enabled: true
   container:
