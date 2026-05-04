@@ -26,6 +26,9 @@ hpa:
   maxReplicas: 10
   requestsPerSecond: 5
 
+serviceMonitor:
+  enabled: true
+
 resources: {}
 
 nodeSelector: {}
