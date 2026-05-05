@@ -24,7 +24,12 @@ hpa:
   enabled: true
   minReplicas: 1
   maxReplicas: 10
-  requestsPerSecond: 5
+  keda:
+    prometheusAddress: "http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090"
+    nginxRequestsPerSecond:
+      enabled: true
+      query: 'sum(rate(nginx_http_requests_total{namespace="default", pod=~"taskapp-frontend-.*"}[1m]))'
+      threshold: "5"
 
 serviceMonitor:
   enabled: true
