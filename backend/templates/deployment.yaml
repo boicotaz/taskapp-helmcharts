@@ -50,6 +50,7 @@ spec:
             configMapKeyRef:
               name: {{ .Release.Name }}-config
               key: DB_HOST
+        {{- if .Values.awsCredentials.enabled }}
         - name: AWS_ACCESS_KEY_ID
           valueFrom:
             secretKeyRef:
@@ -60,6 +61,7 @@ spec:
             secretKeyRef:
               name: {{ .Release.Name }}-aws-credentials
               key: AWS_SECRET_ACCESS_KEY
+        {{- end }}
         lifecycle:
           preStop:
             exec:

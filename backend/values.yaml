@@ -29,6 +29,7 @@ db:
   user: taskuser
 
 awsCredentials:
+  enabled: false
   clusterSecretStoreName: aws-secrets-manager
   # Path to the secret in AWS Secrets Manager.
   # Expected JSON format: {"aws_access_key_id": "<value>", "aws_secret_access_key": "<value>"}
