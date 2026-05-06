@@ -28,6 +28,12 @@ db:
   name: taskdb
   user: taskuser
 
+awsCredentials:
+  clusterSecretStoreName: aws-secrets-manager
+  # Path to the secret in AWS Secrets Manager.
+  # Expected JSON format: {"aws_access_key_id": "<value>", "aws_secret_access_key": "<value>"}
+  secretPath: taskapp/dev/backend-credentials
+
 resources:
   requests:
     memory: "64Mi"

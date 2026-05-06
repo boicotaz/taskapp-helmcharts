@@ -50,6 +50,16 @@ spec:
             configMapKeyRef:
               name: {{ .Release.Name }}-config
               key: DB_HOST
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-aws-credentials
+              key: AWS_ACCESS_KEY_ID
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Release.Name }}-aws-credentials
+              key: AWS_SECRET_ACCESS_KEY
         lifecycle:
           preStop:
             exec:
