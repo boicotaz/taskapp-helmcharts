@@ -156,6 +156,109 @@ data:
               "refId": "A"
             }
           ]
+        },
+        {
+          "type": "row",
+          "id": 7,
+          "title": "Traffic (Frontend)",
+          "collapsed": false,
+          "gridPos": { "x": 0, "y": 18, "w": 24, "h": 1 }
+        },
+        {
+          "type": "timeseries",
+          "id": 8,
+          "title": "Requests per Second (per pod)",
+          "gridPos": { "x": 0, "y": 19, "w": 16, "h": 8 },
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "reqps",
+              "custom": { "lineWidth": 2, "fillOpacity": 10 }
+            }
+          },
+          "options": {
+            "legend": {
+              "displayMode": "table",
+              "placement": "bottom",
+              "calcs": ["lastNotNull", "max"]
+            }
+          },
+          "targets": [
+            {
+              "datasource": { "type": "prometheus", "uid": "prometheus" },
+              "expr": "rate(nginx_http_requests_total{namespace=\"default\", pod=~\"taskapp-frontend-.*\"}[1m])",
+              "legendFormat": "{{`{{pod}}`}}",
+              "refId": "A"
+            }
+          ]
+        },
+        {
+          "type": "stat",
+          "id": 9,
+          "title": "Total Req/s",
+          "gridPos": { "x": 16, "y": 19, "w": 8, "h": 4 },
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "reqps",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  { "color": "green", "value": null },
+                  { "color": "yellow", "value": 25 },
+                  { "color": "red", "value": 45 }
+                ]
+              }
+            }
+          },
+          "options": {
+            "reduceOptions": { "calcs": ["lastNotNull"] },
+            "colorMode": "background",
+            "graphMode": "area",
+            "orientation": "auto"
+          },
+          "targets": [
+            {
+              "datasource": { "type": "prometheus", "uid": "prometheus" },
+              "expr": "sum(rate(nginx_http_requests_total{namespace=\"default\", pod=~\"taskapp-frontend-.*\"}[1m]))",
+              "legendFormat": "total",
+              "refId": "A"
+            }
+          ]
+        },
+        {
+          "type": "stat",
+          "id": 10,
+          "title": "Frontend Replicas",
+          "gridPos": { "x": 16, "y": 23, "w": 8, "h": 4 },
+          "datasource": { "type": "prometheus", "uid": "prometheus" },
+          "fieldConfig": {
+            "defaults": {
+              "unit": "short",
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  { "color": "green", "value": null },
+                  { "color": "yellow", "value": 6 },
+                  { "color": "red", "value": 9 }
+                ]
+              }
+            }
+          },
+          "options": {
+            "reduceOptions": { "calcs": ["lastNotNull"] },
+            "colorMode": "background",
+            "graphMode": "area",
+            "orientation": "auto"
+          },
+          "targets": [
+            {
+              "datasource": { "type": "prometheus", "uid": "prometheus" },
+              "expr": "kube_deployment_status_replicas{namespace=\"default\", deployment=\"taskapp-frontend\"}",
+              "legendFormat": "replicas",
+              "refId": "A"
+            }
+          ]
         }
       ]
     }
