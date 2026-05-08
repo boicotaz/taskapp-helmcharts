@@ -62,6 +62,14 @@ spec:
               name: {{ .Release.Name }}-aws-credentials
               key: AWS_SECRET_ACCESS_KEY
         {{- end }}
+        {{- if .Values.sqs.enabled }}
+        - name: SQS_ENABLED
+          value: "true"
+        - name: SQS_QUEUE_URL
+          value: {{ .Values.sqs.queueUrl | quote }}
+        - name: AWS_REGION
+          value: {{ .Values.sqs.region | quote }}
+        {{- end }}
         lifecycle:
           preStop:
             exec:

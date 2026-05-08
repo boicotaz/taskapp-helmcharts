@@ -35,6 +35,11 @@ awsCredentials:
   # Expected JSON format: {"aws_access_key_id": "<value>", "aws_secret_access_key": "<value>"}
   secretPath: taskapp/dev/backend-credentials
 
+sqs:
+  enabled: false
+  queueUrl: ""
+  region: eu-west-1
+
 resources:
   requests:
     memory: "64Mi"
