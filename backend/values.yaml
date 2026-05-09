@@ -39,6 +39,8 @@ sqs:
   enabled: false
   queueUrl: ""
   region: eu-west-1
+  maxMessages: 1
+  workSleepSeconds: 1
 
 keda:
   enabled: false

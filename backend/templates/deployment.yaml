@@ -69,6 +69,10 @@ spec:
           value: {{ .Values.sqs.queueUrl | quote }}
         - name: AWS_REGION
           value: {{ .Values.sqs.region | quote }}
+        - name: SQS_MAX_MESSAGES
+          value: {{ .Values.sqs.maxMessages | quote }}
+        - name: SQS_WORK_SLEEP_SECONDS
+          value: {{ .Values.sqs.workSleepSeconds | quote }}
         {{- end }}
         lifecycle:
           preStop:
