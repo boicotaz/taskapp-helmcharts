@@ -40,7 +40,7 @@ sqs:
   queueUrl: ""
   region: eu-west-1
   maxMessages: 1
-  workSleepSeconds: 1
+  workSleepSeconds: 10
 
 keda:
   enabled: false
