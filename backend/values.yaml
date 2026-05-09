@@ -40,6 +40,13 @@ sqs:
   queueUrl: ""
   region: eu-west-1
 
+keda:
+  enabled: false
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  queueLength: "5"
+  cooldownPeriod: 300
+
 resources:
   requests:
     memory: "64Mi"
