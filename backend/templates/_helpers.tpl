@@ -11,7 +11,7 @@ Render the backend service endpoint (host:port).
 Usage: {{ include "taskapp-backend.endpoint" . }}
 */}}
 {{- define "taskapp-backend.endpoint" -}}
-{{- printf "http://%s:%v" .Release.Name .Values.service.port }}
+{{- printf "http://%s:%v" .Chart.Name .Values.service.port }}
 {{- end }}
 
 {{/*

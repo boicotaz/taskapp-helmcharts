@@ -2,15 +2,15 @@
 apiVersion: keda.sh/v1alpha1
 kind: TriggerAuthentication
 metadata:
-  name: {{ .Release.Name }}-sqs-auth
+  name: {{ .Chart.Name }}-sqs-auth
   labels:
     {{- include "taskapp.labels" . | nindent 4 }}
 spec:
   secretTargetRef:
     - parameter: awsAccessKeyID
-      name: {{ .Release.Name }}-aws-credentials
+      name: {{ .Chart.Name }}-aws-credentials
       key: AWS_ACCESS_KEY_ID
     - parameter: awsSecretAccessKey
-      name: {{ .Release.Name }}-aws-credentials
+      name: {{ .Chart.Name }}-aws-credentials
       key: AWS_SECRET_ACCESS_KEY
 {{- end }}
