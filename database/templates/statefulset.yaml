@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ .Chart.Name }}
 spec:
-  serviceName: {{ .Chart.Name }}
+  serviceName: {{ .Release.Name }}
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
@@ -42,7 +42,7 @@ spec:
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ .Chart.Name }}-secret
+              name: {{ .Release.Name }}-secret
               key: POSTGRES_PASSWORD
         volumeMounts:
         - name: {{ .Release.Name }}-storage

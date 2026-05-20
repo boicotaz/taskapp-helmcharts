@@ -22,12 +22,12 @@ spec:
         args:
           - |
             echo "Waiting..."
-            until pg_isready -h {{ .Chart.Name }} -U $POSTGRES_USER -d $POSTGRES_DB; do
+            until pg_isready -h {{ .Release.Name }} -U $POSTGRES_USER -d $POSTGRES_DB; do
               sleep 2
             done
 
             echo "Seeding..."
-            psql -h {{ .Chart.Name }} -U $POSTGRES_USER -d $POSTGRES_DB -f /seed/seed.sql
+            psql -h {{ .Release.Name }} -U $POSTGRES_USER -d $POSTGRES_DB -f /seed/seed.sql
         env:
         - name: POSTGRES_DB
           valueFrom:
@@ -42,7 +42,7 @@ spec:
         - name: PGPASSWORD
           valueFrom:
             secretKeyRef:
-              name: {{ .Chart.Name }}-secret
+              name: {{ .Release.Name }}-secret
               key: POSTGRES_PASSWORD
         volumeMounts:
         - name: seed-volume

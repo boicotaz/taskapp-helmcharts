@@ -14,7 +14,7 @@ spec:
   triggers:
     - type: aws-sqs-queue
       authenticationRef:
-        name: {{ .Chart.Name }}-sqs-auth
+        name: {{ .Release.Name }}-sqs-auth
       metadata:
         queueURL: {{ .Values.sqs.queueUrl | quote }}
         queueLength: {{ .Values.keda.queueLength | quote }}
