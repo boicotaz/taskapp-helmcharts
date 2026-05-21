@@ -15,6 +15,7 @@ ingress:
   enabled: true
   path: /
   pathType: Prefix
+  className: nginx
 
 backend:
   serviceName: taskapp-backend
