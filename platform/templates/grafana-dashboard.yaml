@@ -81,7 +81,7 @@ data:
           "targets": [
             {
               "datasource": { "type": "prometheus", "uid": "prometheus" },
-              "expr": "(\n  rate(container_cpu_usage_seconds_total{namespace=\"default\", pod=~\"taskapp-.*\", pod!=\"\"}[5m])\n  / on(namespace, pod)\n  sum by(namespace, pod) (\n    kube_pod_container_resource_limits{namespace=\"default\", resource=\"cpu\", pod=~\"taskapp-.*\"}\n  )\n) * 100",
+              "expr": "(\n  sum by(namespace, pod) (\n    rate(container_cpu_usage_seconds_total{namespace=\"default\", pod=~\"taskapp-.*\", pod!=\"\"}[5m])\n  )\n  /\n  sum by(namespace, pod) (\n    kube_pod_container_resource_limits{namespace=\"default\", resource=\"cpu\", pod=~\"taskapp-.*\"}\n  )\n) * 100",
               "legendFormat": "{{`{{pod}}`}}",
               "refId": "A"
             }
@@ -151,7 +151,7 @@ data:
           "targets": [
             {
               "datasource": { "type": "prometheus", "uid": "prometheus" },
-              "expr": "(\n  container_memory_working_set_bytes{namespace=\"default\", pod=~\"taskapp-.*\", pod!=\"\"}\n  / on(namespace, pod)\n  sum by(namespace, pod) (\n    kube_pod_container_resource_limits{namespace=\"default\", resource=\"memory\", pod=~\"taskapp-.*\"}\n  )\n) * 100",
+              "expr": "(\n  sum by(namespace, pod) (\n    container_memory_working_set_bytes{namespace=\"default\", pod=~\"taskapp-.*\", pod!=\"\"}\n  )\n  /\n  sum by(namespace, pod) (\n    kube_pod_container_resource_limits{namespace=\"default\", resource=\"memory\", pod=~\"taskapp-.*\"}\n  )\n) * 100",
               "legendFormat": "{{`{{pod}}`}}",
               "refId": "A"
             }
