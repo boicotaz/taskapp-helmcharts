@@ -8,9 +8,9 @@ metadata:
 spec:
   secretTargetRef:
     - parameter: awsAccessKeyID
-      name: {{ .Release.Name }}-aws-credentials
+      name: {{ .Values.awsCredentials.secretName }}
       key: AWS_ACCESS_KEY_ID
     - parameter: awsSecretAccessKey
-      name: {{ .Release.Name }}-aws-credentials
+      name: {{ .Values.awsCredentials.secretName }}
       key: AWS_SECRET_ACCESS_KEY
 {{- end }}
