@@ -26,8 +26,4 @@ db:
   name: taskdb
   user: taskuser
 
-externalSecrets:
-  clusterSecretStoreName: aws-secrets-manager
-  # Path to the secret in AWS Secrets Manager.
-  # Expected JSON format: {"password": "<value>"}
-  secretPath: taskapp/dev/database
+dbSecretName: taskapp-database-secret
