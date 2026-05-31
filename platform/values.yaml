@@ -1,5 +1,13 @@
 namespace: default
 
+clusterSecretStore:
+  name: aws-secrets-manager
+  aws:
+    region: eu-west-1
+    credentialsSecret:
+      name: aws-credentials
+      namespace: external-secrets
+
 externalSecrets:
   clusterSecretStoreName: aws-secrets-manager
   targetSecretName: taskapp-database-secret
