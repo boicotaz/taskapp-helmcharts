@@ -12,7 +12,7 @@ controllerManager:
       readOnlyRootFilesystem: true
     image:
       repository: boicotaz/taskapp-backend-operator
-      tag: "275145db58ffb842394aa424282a151a89675533"
+      tag: "dfef27e35fbe53af61d26ce70ab4efb0fb0e29cb"
     resources:
       limits:
         cpu: 500m
