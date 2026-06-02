@@ -25,8 +25,11 @@ awsCredentials:
 crossplane:
   # Path to the secret in AWS Secrets Manager.
   # Expected JSON format: {"aws_access_key_id": "<value>", "aws_secret_access_key": "<value>"}
-  # Leave empty to skip creating the ExternalSecret.
+  # Leave empty to skip creating the ExternalSecret, Provider, and ProviderConfig.
   secretPath: ""
+  region: eu-west-1
+  provider:
+    package: xpkg.upbound.io/upbound/provider-aws-sqs:v1.14.0
 
 prometheusRules:
   enabled: false
