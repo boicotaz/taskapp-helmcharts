@@ -12,5 +12,4 @@ spec:
       namespace: crossplane-system
       name: crossplane-aws-credentials
       key: creds
-  region: {{ .Values.crossplane.region }}
 {{- end }}
