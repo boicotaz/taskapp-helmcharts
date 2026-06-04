@@ -10,6 +10,7 @@ controllerManager:
         drop:
         - ALL
       readOnlyRootFilesystem: true
+    defaultQueueRegion: eu-west-1
     image:
       repository: boicotaz/taskapp-backend-operator
       tag: "f97b18e4e74c6704c93e069ea6353724c3530f76"
