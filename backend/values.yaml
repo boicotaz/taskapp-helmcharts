@@ -33,7 +33,6 @@ awsCredentials:
   secretName: taskapp-backend-aws-credentials
 
 sqs:
-  enabled: false
   queueUrl: ""
   region: eu-west-1
   maxMessages: 1

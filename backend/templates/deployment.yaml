@@ -62,9 +62,7 @@ spec:
               name: {{ .Values.awsCredentials.secretName }}
               key: AWS_SECRET_ACCESS_KEY
         {{- end }}
-        {{- if .Values.sqs.enabled }}
-        - name: SQS_ENABLED
-          value: "true"
+        {{- if .Values.sqs.queueUrl }}
         - name: SQS_QUEUE_URL
           value: {{ .Values.sqs.queueUrl | quote }}
         - name: AWS_REGION
